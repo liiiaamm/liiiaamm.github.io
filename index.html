@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liam Esgueva</title>
+<meta name="description" content="Mathematical Engineering and AI student in Madrid. AI team at Kearney, thesis on time-series foundation models with the Barcelona Supercomputing Center, exchange at UIUC in 2027.">
+<meta property="og:title" content="Liam Esgueva">
+<meta property="og:description" content="Mathematical engineering and AI. Systems where the maths has to survive the real world.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23f5f5f2'/%3E%3Cg fill='none' stroke='%2317191b' stroke-width='1.6'%3E%3Cellipse cx='16' cy='16' rx='12' ry='9'/%3E%3Cellipse cx='16' cy='16' rx='7' ry='5'/%3E%3C/g%3E%3Ccircle cx='16' cy='16' r='2.6' fill='%23ff5b1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Archivo:wdth,wght@125,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Sections">
+  <a href="#top" class="nav-name">Liam Esgueva</a>
+  <div class="nav-links">
+    <a href="#now">Now</a>
+    <a href="#work">Work</a>
+    <a href="#projects">Projects</a>
+    <a href="#clubs">Clubs</a>
+    <a href="#outside">Outside</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ HERO: a loss landscape you can drop a ball into ============ -->
+<header class="hero" id="top">
+  <canvas id="terrain" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <h1>Liam Esgueva</h1>
+    <p class="hero-line">Mathematical engineering and AI. I build systems where the maths has to survive the real world.</p>
+    <p class="hero-meta">Madrid <span class="sep"></span> AI team at Kearney <span class="sep"></span> Thesis with the Barcelona Supercomputing Center <span class="sep"></span> UIUC, spring 2027</p>
+  </div>
+  <p class="hero-hint" id="heroHint">Click anywhere to drop a ball. It rolls downhill by gradient descent, the same way a network learns.</p>
+  <p class="hero-readout" id="heroReadout" aria-live="polite"></p>
+</header>
+
+<main>
+
+<!-- ============ NOW ============ -->
+<section class="now" id="now" aria-labelledby="nowTitle">
+  <h2 id="nowTitle" class="section-title">Now</h2>
+  <ol class="now-track">
+    <li>
+      <span class="now-when">Since Sep 2026</span>
+      <h3>Bachelor’s thesis with BSC</h3>
+      <p>Time-series foundation models for energy forecasting: putting Google’s TimesFM to work on open European power data, in collaboration with the Barcelona Supercomputing Center.</p>
+    </li>
+    <li>
+      <span class="now-when">Since Sep 2026</span>
+      <h3>Kearney, AI team</h3>
+      <p>Back on the team after the summer, on a return offer.</p>
+    </li>
+    <li>
+      <span class="now-when">Since Sep 2026</span>
+      <h3>ICAI Quantitative Finance Club</h3>
+      <p>Co-founding Spain’s first undergraduate quant finance club.</p>
+    </li>
+    <li class="next">
+      <span class="now-when">Jan to May 2027</span>
+      <h3>Exchange at UIUC</h3>
+      <p>A semester of computer science at the University of Illinois Urbana-Champaign.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work" aria-labelledby="workTitle">
+  <h2 id="workTitle" class="section-title wrap">Work</h2>
+
+  <article class="job kearney">
+    <div class="job-copy">
+      <p class="wordmark">Kearney</p>
+      <h3>Business Analyst Intern, AI team</h3>
+      <p class="job-dates">Jun to Jul 2026, and again since Sep 2026</p>
+      <ul>
+        <li>Designed an end-to-end <strong>Graph RAG pipeline</strong> that detects equipment malfunctions by reasoning across heterogeneous company documents through a knowledge graph.</li>
+        <li>Prototyped a proof of concept that combines business knowledge with academic research from arXiv to build future ETL pipelines autonomously.</li>
+        <li>Received a return offer to continue with the AI team.</li>
+      </ul>
+    </div>
+    <svg class="job-art" id="kgraph" viewBox="0 0 420 360" aria-hidden="true"></svg>
+  </article>
+
+  <article class="job finaipro">
+    <div class="job-copy">
+      <p class="wordmark">Finaipro</p>
+      <h3>AI and Time Series Research Intern</h3>
+      <p class="job-dates">Jan to Apr 2026</p>
+      <ul>
+        <li>Developed and validated <strong>Temporal Fusion Transformer</strong> variants for three-month equity forecasting.</li>
+        <li>Designed a custom <strong>CNN plus Mixture-of-Experts</strong> architecture: three experts, weighted per input by a learned router.</li>
+      </ul>
+    </div>
+    <div class="job-art fin-art" aria-hidden="true">
+      <svg id="forecast" viewBox="0 0 420 220"></svg>
+      <svg id="moe" viewBox="0 0 420 130"></svg>
+    </div>
+  </article>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects" aria-labelledby="projTitle">
+  <h2 id="projTitle" class="section-title">Projects</h2>
+  <p class="section-lede">Most of these started as university coursework with friends. Each one now runs in the browser, so you can try it instead of reading about it.</p>
+  <div class="exhibits" id="exhibits"></div>
+</section>
+
+<!-- ============ CLUBS ============ -->
+<section class="clubs" id="clubs" aria-labelledby="clubsTitle">
+  <h2 id="clubsTitle" class="section-title">Clubs</h2>
+  <div class="club-grid">
+    <article class="club quant">
+      <div class="tape" aria-hidden="true"><div class="tape-inner" id="tape"></div></div>
+      <h3>ICAI Quantitative Finance Club</h3>
+      <p class="club-role">Co-founder and lead, since Sep 2026</p>
+      <p>Spain’s first undergraduate quant finance club, built from zero. Partnerships, curriculum, and new ways of teaching the material to students. More than 50 people were on the waitlist before launch.</p>
+      <table class="book" aria-label="Club at a glance">
+        <tr><th>Waitlist before launch</th><td>50+</td></tr>
+        <tr><th>Founded</th><td>2026</td></tr>
+      </table>
+    </article>
+    <article class="club pevc">
+      <p class="sheet-label">Term sheet</p>
+      <h3>Comillas PE and VC Club</h3>
+      <p class="club-role">Board member, since May 2025</p>
+      <dl class="terms">
+        <div><dt>Members</dt><dd>400</dd></div>
+        <div><dt>My mandate</dt><dd>Partnerships and external relations</dd></div>
+        <div><dt>Board decisions</dt><dd>Application process, project system, website</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="edu" aria-labelledby="eduTitle">
+  <h2 id="eduTitle" class="section-title">Education</h2>
+  <div class="edu-grid">
+    <article>
+      <h3>Comillas ICAI, Madrid</h3>
+      <p class="edu-what">BSc Mathematical Engineering and Artificial Intelligence, 2023 to 2027</p>
+      <p class="edu-big">7.9<span>/10</span></p>
+      <p class="edu-note">Top 10 % of the year. Distinction in Optimization and Simulation, Data Acquisition, and Big Data Architecture. Honourable mention in the ICAI Math Team Contest.</p>
+    </article>
+    <article>
+      <h3>University of Illinois Urbana-Champaign</h3>
+      <p class="edu-what">Exchange semester, Computer Science, Jan to May 2027</p>
+      <p class="edu-big">CS<span> @ UIUC</span></p>
+      <p class="edu-note">Spring semester in Urbana-Champaign, Illinois.</p>
+    </article>
+  </div>
+  <div class="skills">
+    <p><b>AI and agents</b> LangChain, LangGraph, LLM APIs, multi-agent orchestration, RAG, reinforcement learning</p>
+    <p><b>Machine learning</b> PyTorch, scikit-learn, transformers, RNNs, NLP, computer vision, time series</p>
+    <p><b>Code</b> Python, TypeScript, JavaScript, SQL, C#, R, MATLAB, Bash</p>
+    <p><b>Maths</b> Optimization, numerical methods, probability, stochastic processes</p>
+    <p><b>Tools</b> Git, Docker, AWS, Databricks, Tableau</p>
+  </div>
+</section>
+
+<!-- ============ OUTSIDE: a ridge line ============ -->
+<section class="outside" id="outside" aria-labelledby="outTitle">
+  <div class="outside-copy">
+    <h2 id="outTitle" class="section-title">Outside</h2>
+    <p>Off the keyboard I head for the mountains: trail running and skiing. Swimming and competitive football too.</p>
+  </div>
+  <svg id="ridge" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMax meet" aria-hidden="true"></svg>
+  <ul class="ridge-legend" id="ridgeLegend"></ul>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact" aria-labelledby="contactTitle">
+  <h2 id="contactTitle">Let’s build something.</h2>
+  <p>Hackathons, research, internships, or a good problem.</p>
+  <p class="contact-links">
+    <a href="mailto:egsn.liam@gmail.com">egsn.liam@gmail.com</a>
+    <a href="https://www.linkedin.com/in/liamesgueva/">LinkedIn</a>
+    <a href="https://github.com/liiiaamm">GitHub</a>
+  </p>
+  <p class="langs">Spanish, native. English, C1.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>Designed and built from scratch. Every illustration on this page is drawn in code.</p>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
