@@ -344,8 +344,20 @@
       tags: "Python, Tonelli–Shanks, Pollard’s rho",
       code: "https://github.com/liiiaamm/number-theory-lab",
     },
-    { cls: "ex-slot", kind: "With Sergio Fernández", title: "DassIt", text: "A chatbot backend. Arriving here soon.", tags: "", soon: "Coming soon" },
-    { cls: "ex-slot", kind: "With Sergio Fernández", title: "ADAQuant", text: "Quantitative finance. Arriving here soon.", tags: "", soon: "Coming soon" },
+    {
+      cls: "ex-ada wide", art: "ada", kind: "Data engineering, streaming",
+      title: "ADAQuant",
+      text: "A Cardano data platform on AWS: a bronze, silver and gold lake in Glue, and a live lane from Binance through Kafka to Timestream with SNS alerts. The demo runs that lane on the live feed.",
+      tags: "Kafka, AWS Glue, PySpark, Timestream",
+      demo: "https://liiiaamm.github.io/adaquant/", code: "https://github.com/liiiaamm/adaquant",
+    },
+    {
+      cls: "ex-dassit", art: "dassit", kind: "Full stack, LLM serving",
+      title: "DassIt",
+      text: "A self-hosted chatbot: Django REST with JWT and quotas, a Next.js client and Llama 3.2 in Ollama. The demo shows every request on the wire.",
+      tags: "Django REST, Next.js, Ollama, Docker",
+      demo: "https://liiiaamm.github.io/dassit/", code: "https://github.com/liiiaamm/dassit",
+    },
   ];
 
   // Miniature of each demo's look, drawn inside a band between the title and the text.
@@ -421,6 +433,31 @@
         t.textContent = k;
       }
     },
+  };
+
+  ART.ada = (svg, b) => {
+    const { x0, x1, y0, y1 } = b, w = x1 - x0, h = y1 - y0, r = rng(29), n = 46;
+    let p = 0.55; const pts = [];
+    for (let i = 0; i < n; i++) { p += (r() - 0.48) * 0.08; pts.push(p); }
+    const lo = Math.min(...pts) - 0.05, hi = Math.max(...pts) + 0.05, X = (i) => x0 + (i / (n - 1)) * w, Y = (v) => y1 - ((v - lo) / (hi - lo)) * h;
+    pts.forEach((v, i) => { if (!i) return; const up = v >= pts[i - 1], top = Y(Math.max(v, pts[i - 1])), bot = Y(Math.min(v, pts[i - 1]));
+      svgEl("rect", { x: X(i) - w / n * 0.32, y: top, width: w / n * 0.64, height: Math.max(1.5, bot - top), fill: up ? "#5f9598" : "#1d546d" }, svg); });
+    const vw = pts.map((v, i) => { const a = pts.slice(Math.max(0, i - 4), i + 1); return a.reduce((s, x) => s + x, 0) / a.length; });
+    svgEl("polyline", { points: vw.map((v, i) => `${X(i)},${Y(v)}`).join(" "), fill: "none", stroke: "#e0a400", "stroke-width": 2 }, svg);
+    [10, 27, 39].forEach((i) => svgEl("circle", { cx: X(i), cy: Y(pts[i]) - 10, r: 3.5, fill: "#e0a400" }, svg));
+  };
+  ART.dassit = (svg, b) => {
+    const { x0, x1, y0, y1 } = b, w = x1 - x0, h = y1 - y0, rowH = Math.min(26, h / 5);
+    [["u", 0.55], ["a", 0.75], ["u", 0.4], ["a", 0.62]].forEach(([who, f], i) => {
+      const y = y0 + i * (rowH + 6), bw = w * f * 0.62, x = who === "u" ? x0 + w * 0.62 - bw : x0;
+      if (y + rowH > y1) return;
+      svgEl("rect", { x, y, width: bw, height: rowH, rx: 8, fill: who === "u" ? "#3fcdf7" : "#ffffff", stroke: who === "a" ? "#b9b3d6" : "none", opacity: who === "u" ? 0.85 : 1 }, svg);
+    });
+    const wx = x0 + w * 0.68;
+    ["200 POST", "401 GET", "200 POST", "200 GET", "403 GET"].forEach((t, i) => {
+      const y = y0 + 8 + i * (h / 5.2); if (y > y1) return;
+      const t2 = svgEl("text", { x: wx, y, "font-size": 10.5, "font-family": "Geist Mono, monospace", fill: t.startsWith("2") ? "#1f9d6b" : "#d6334f" }, svg); t2.textContent = t;
+    });
   };
 
   (function projects() {
