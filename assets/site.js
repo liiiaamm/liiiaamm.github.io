@@ -319,9 +319,9 @@
     {
       cls: "ex-robot", art: "robot", kind: "Robotics",
       title: "Autonomous navigation on ROS 2",
-      text: "A TurtleBot3 that localises itself with a particle filter, plans with a probabilistic roadmap and drives with pure pursuit, in simulation and on the real robot.",
+      text: "A TurtleBot3 that starts lost, localises itself with a particle filter, plans with a probabilistic roadmap and drives with pure pursuit. Watch all four ROS 2 nodes run in your browser.",
       tags: "ROS 2, particle filter, PRM",
-      code: "https://github.com/liiiaamm/autonomous-navigation-ros2",
+      demo: "https://liiiaamm.github.io/autonomous-navigation-ros2/", code: "https://github.com/liiiaamm/autonomous-navigation-ros2",
     },
     {
       cls: "ex-brain", art: "brain", kind: "Agents, knowledge systems",
