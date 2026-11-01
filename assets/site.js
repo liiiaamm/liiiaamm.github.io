@@ -215,8 +215,8 @@
   (function kgraph() {
     const svg = $("kgraph");
     const nodes = [
-      ["Equipment", 210, 175, 1], ["Failure mode", 330, 95, 0], ["Sensor log", 95, 85, 0], ["Manual", 80, 250, 0],
-      ["Work order", 230, 305, 0], ["Spare part", 355, 255, 0], ["Symptom", 215, 55, 0], ["Root cause", 360, 175, 0],
+      ["Entity", 210, 175, 1], ["Relation", 330, 95, 0], ["Documents", 95, 85, 0], ["Data", 80, 250, 0],
+      ["Agent", 230, 305, 0], ["Answer", 355, 255, 0], ["Query", 215, 55, 0], ["Context", 360, 175, 0],
     ];
     const extra = [], r = rng(7);
     for (let i = 0; i < 16; i++) extra.push([null, 30 + r() * 360, 25 + r() * 310, 0]);
@@ -228,7 +228,7 @@
       all.forEach((n, j) => { if (j === a) return; const d = (n[1] - all[a][1]) ** 2 + (n[2] - all[a][2]) ** 2; if (d < bd) { bd = d; best = j; } });
       edges.push([a, best]);
     });
-    const path = [[2, 0], [0, 1], [1, 7], [7, 5]]; // a query walking sensor log -> equipment -> failure -> cause -> part
+    const path = [[2, 0], [0, 1], [1, 7], [7, 5]]; // documents -> entity -> relation -> context -> answer
     edges.forEach(([a, b]) => svgEl("line", { x1: all[a][1], y1: all[a][2], x2: all[b][1], y2: all[b][2], class: "mut-s", "stroke-width": 1.1, opacity: 0.55 }, svg));
     const hot = path.map(([a, b]) => svgEl("line", { x1: all[a][1], y1: all[a][2], x2: all[b][1], y2: all[b][2], class: "acc-s", "stroke-width": 3, "stroke-linecap": "round", "stroke-dasharray": 300, "stroke-dashoffset": 300 }, svg));
     all.forEach(([label, x, y, main]) => {
