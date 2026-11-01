@@ -326,9 +326,9 @@
     {
       cls: "ex-brain", art: "brain", kind: "Agents, knowledge systems",
       title: "Second brain",
-      text: "A self-improving Obsidian vault: agents turn lecture slides and transcripts into linked notes, with a wiki the LLM reads first.",
-      tags: "Claude, MCP, Obsidian, agents",
-      soon: "Being cleaned up for release",
+      text: "A multi-agent system that turns lectures into Obsidian notes. An editor writes, a gate checks the maths and links, and an auditor who didn't write the note checks it against the source. The demo replays one batch.",
+      tags: "Agents, harness design, Obsidian",
+      demo: "https://liiiaamm.github.io/second-brain/", code: "https://github.com/liiiaamm/second-brain",
     },
     {
       cls: "ex-rl", art: "rl", kind: "Reinforcement learning",
